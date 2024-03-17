@@ -65,8 +65,12 @@ elif choice == 'update':
 
 elif choice == 'read':
     cursor = connecting.cursor()
-    id = int(input('Enter ID from 1 to 10 : '))
-    query = f'select * from bank where "ID"={id}'
+    ID_choice= int(input('1) Read all , 2) read from ID ?'))
+    if ID_choice == 1:
+        query = f'select * from bank'
+    elif ID_choice == 2:
+        id = int(input('Enter ID  : '))
+        query = f'select * from bank where "ID"={id}'
     cursor.execute(query)
     responese = cursor.fetchall()
     for row in responese:
